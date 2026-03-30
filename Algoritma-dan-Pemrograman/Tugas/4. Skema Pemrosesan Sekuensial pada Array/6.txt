@@ -1,0 +1,19 @@
+procedure InputTerurut (input/output T : TabInt; input X : integer)
+
+KAMUS LOKAL
+    indeks_X, i : integer
+
+ALGORITMA
+    if(T.Neff < NMax) then
+        T.Neff <- T.Neff + 1
+        indeks_X <- T.Neff
+        while((X < T.Tab[indeks_X - 1]) and (indeks_X > 0)) do
+            indeks_X <- indeks_X - 1
+        { X >= T.Tab[indeks_X - 1] or indeks_X <= 0 }
+
+        i <- T.Neff
+        while(i > indeks_X) do
+            T.Tab[i] = T.Tab[i - 1]
+        { i <= indeks_X }
+
+        T.Tab[indeks_X] = X

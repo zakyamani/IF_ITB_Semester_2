@@ -1,0 +1,14 @@
+function IdxPengajarMK (P : string, T : TabMatKul)
+{ Mencari indeks terakhir kali P ditemukan di T }
+
+KAMUS LOKAL
+    i : integer
+
+ALGORITMA
+    i <- T.NELMT
+    while(i > 0) do
+        if(T.TM[i].Pengajar = P) then
+            -> i
+        i <- i - 1
+    { i <= 0 }
+    -> 0

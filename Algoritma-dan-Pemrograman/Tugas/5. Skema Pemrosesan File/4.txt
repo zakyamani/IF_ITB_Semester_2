@@ -1,0 +1,49 @@
+PROGRAM MergeMahasiswa
+{ Menggabungkan rekmhs1.dat dan rekmhs2.dat ke rekmhs.dat }
+
+KAMUS
+    type rekamanMHS : < NIM : integer, nilai : integer >
+
+    File1, File2, FileOut : SEQFILE of
+                            (*) rekamanMHS
+                            (1) mark 
+
+    Mhs1, Mhs2 : rekamanMHS
+
+ALGORITMA
+    assign(File1, "rekmhs1.dat")
+    assign(File2, "rekmhs2.dat")
+    assign(FileOut, "rekmhs.dat")
+
+    rewrite(FileOut)
+    open(File1, Mhs1)
+    open(File2, Mhs2)
+
+    while (Mhs1.NIM != 99999999) and (Mhs2.NIM != 99999999) do
+        
+        { Bandingkan NIM, tulis yang lebih kecil agar hasil tetap terurut }
+        if (Mhs1.NIM <= Mhs2.NIM) then
+            write(FileOut, Mhs1)
+            read(File1, Mhs1)
+        else
+            write(FileOut, Mhs2)
+            read(File2, Mhs2)
+    { (Mhs1.NIM = 99999999) or (Mhs2.NIM = 99999999) }
+
+    while (Mhs1.NIM != 99999999) do
+        write(FileOut, Mhs1)
+        read(File1, Mhs1)
+    { Mhs1.NIM = 99999999 }
+
+    while (Mhs2.NIM != 99999999) do
+        write(FileOut, Mhs2)
+        read(File2, Mhs2)
+    { Mhs2.NIM = 99999999 }
+
+    Mhs1.NIM <- 99999999
+    Mhs1.nilai <- 999
+    write(FileOut, Mhs1)
+
+    close(File1)
+    close(File2)
+    close(FileOut)

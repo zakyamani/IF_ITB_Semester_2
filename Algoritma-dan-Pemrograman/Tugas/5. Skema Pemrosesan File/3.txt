@@ -1,0 +1,37 @@
+PROGRAM TotalPenjualanPerKategori
+{ menampilkan total barang terjual per kategori }
+
+KAMUS
+    type penjualan : < Kategori : string,
+                       KdBarang : string,
+                       Jumlah   : integer >
+
+    ArsipPenjualan : SEQFILE of
+                     (*) penjualan
+                     (1) mark
+                     
+    RecPenj : penjualan
+    KategoriSekarang : string
+    TotalBarang      : integer
+
+ALGORITMA
+    assign(ArsipPenjualan, "datapenjualan.dat")
+    open(ArsipPenjualan, RecPenj)
+
+    if (not EOP(RecPenj)) then
+        while (not EOP(RecPenj)) do
+            KategoriSekarang <- RecPenj.Kategori
+            TotalBarang <- 0
+
+            while (not EOP(RecPenj)) and (RecPenj.Kategori = KategoriSekarang) do
+                TotalBarang <- TotalBarang + RecPenj.Jumlah
+                read(ArsipPenjualan, RecPenj)
+            { (EOP(RecPenj)) or (RecPenj.Kategori != KategoriSekarang) }
+
+            output("Kategori: ", KategoriSekarang, " - Total Terjual: ", TotalBarang)
+            
+        { EOP(RecPenj) }  
+    else
+        output("Arsip penjualan kosong.")
+
+    close(ArsipPenjualan)

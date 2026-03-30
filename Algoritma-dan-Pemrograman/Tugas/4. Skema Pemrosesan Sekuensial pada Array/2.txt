@@ -1,0 +1,14 @@
+procedure Min(input T : TabInt, input N : integer, output minimum : integer)
+{ I.S. Tabel; F.S. nilai minimum dari elemen-elemen pada tabel tersebut }
+
+KAMUS LOKAL
+    i : integer
+
+ALGORITMA
+    minimum <- T[1]
+    i <- 2
+    while(i <= N) do
+        if (minimum > T[i]) then
+            minimum = T[i]
+        i <- i + 1
+    { i > N }

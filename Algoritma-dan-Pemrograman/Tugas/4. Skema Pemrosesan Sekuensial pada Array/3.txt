@@ -1,0 +1,15 @@
+function SearchGtX (T : TabSuhu, X : real)
+{ Mengidentifikasi adanya suhu yang lebih dari X }
+
+KAMUS LOKAL
+    i : integer
+
+ALGORITMA
+    i <- 1
+    while(i <= T.Neff) do
+        if(T.Tab[i] > X) then
+            -> True
+        i <- i + 1
+    { i > T.Neff }
+
+    -> False

@@ -1,0 +1,33 @@
+PROGRAM SalinNilai
+{ menulis rekaman yang hanya berisi nilai dari rekaman.dat }
+
+KAMUS
+    type rekamanMHS : < NIM : string, nilai : integer >
+    
+    rekaman : SEQFILE of
+             (*) rekamanMHS
+             (1) mark
+    
+    DataNilai : SEQFILE of
+               (*) integer
+               (1) mark
+
+    Mhs : rekamanMHS
+
+ALGORITMA
+    assign(rekaman, "rekaman.dat")
+    assign(DataNilai, "nilai.dat")
+    
+    rewrite(DataNilai)
+    open(rekaman, Mhs)
+
+    while(Mhs.NIM != "99999999" or Mhs.nilai != 999) do
+        write(DataNilai, Mhs.nilai)
+        read(rekaman, Mhs)
+    { Mhs.NIM = "99999999" and Mhs.nilai = 999 }
+
+    Mhs.nilai <- 999
+    write(DataNilai, Mhs.nilai)
+
+    close(rekaman)
+    close(DataNilai)

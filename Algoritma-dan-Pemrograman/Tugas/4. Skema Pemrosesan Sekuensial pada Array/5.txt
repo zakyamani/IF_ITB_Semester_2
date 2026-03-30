@@ -1,0 +1,32 @@
+Jawaban A
+
+procedure UrutTabMhs(input TMhs : TabMhs, output TMhs : TabMhs)
+{ Mengurutkan mahasiswa sesuai nilainya dengan selection sort }
+
+KAMUS LOKAL
+    i, j, temp : integer
+
+ALGORITMA
+    i <- 1
+    while(i < TMhs.Neff) do
+        j <- i + 1
+        while(j <= TMhs.Neff) do
+            if(TMhs.TM[j].Nilai > TMhs.TM[i].Nilai) then
+                temp <- TMhs.TM[i].Nilai
+                TMhs.TM[i].Nilai <- TMhs.TM[j].Nilai
+                TMhs.TM[j].Nilai <- temp
+            j <- j + 1
+        { j > TMhs.Neff }
+    { i >= TMhs.Neff }
+
+
+Jawaban B
+
+Jawaban: Tidak bisa
+
+Penjelasan:
+Tidak bisa, karena counting sort dilakukan dengan cara menghitung banyaknya
+mahasiswa yang mendapatkan nilai x (dengan x adalah bilangan antara 0 sampai 100) 
+sehingga saat melakukan sorting, program tidak tahu siapa saja yang memiliki 
+nilai tersebut. Kecuali, jika yang kita ingin urutkan hanyalah data nilai mahasiswa, 
+bukan TM (keseluruhan data mahasiswa berdasarkan nilainya), maka counting sort dapat digunakan.

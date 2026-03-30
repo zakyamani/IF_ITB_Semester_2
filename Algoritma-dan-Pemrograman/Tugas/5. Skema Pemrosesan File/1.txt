@@ -1,0 +1,35 @@
+PROGRAM SalinMahasiswaA
+{ menulis rekaman yang berisi komponen nilai >= 80 dari rekaman.dat }
+
+KAMUS
+    type rekamanMHS : < NIM : string, nilai : integer >
+    
+    Sumber : SEQFILE of
+             (*) rekamanMHS
+             (1) mark
+    
+    FileBaru : SEQFILE of
+               (*) rekamanMHS
+               (1) mark
+
+    Mhs : rekamanMHS
+
+ALGORITMA
+    assign(Sumber, "rekaman.dat")
+    assign(FileBaru, "rekaman1.dat")
+    
+    rewrite(FileBaru)
+    open(Sumber, Mhs)
+
+    while(Mhs.NIM != "99999999" or Mhs.nilai != 999) do
+        if(Mhs.nilai >= 80) then
+            write(FileBaru, Mhs)
+        read(Sumber, Mhs)
+    { Mhs.NIM = "99999999" and Mhs.nilai = 999 }
+
+    Mhs.NIM <- "99999999"
+    Mhs.nilai <- 999
+    write(FileBaru, Mhs)
+
+    close(Sumber)
+    close(FileBaru)

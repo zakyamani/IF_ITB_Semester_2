@@ -1,0 +1,16 @@
+function HitungRerata (T : TabInt, N : integer) --> integer
+{ Menghitung nilai rata-rata elemen dalam T }
+
+KAMUS LOKAL
+    i, jumlah, rerata : integer
+
+ALGORITMA
+    jumlah <- 0
+    i <- 1
+    while(i <= N) do
+        jumlah <- jumlah + T[i]
+        i <- i + 1
+    { i > N }
+
+    rerata <- jumlah/N
+    -> rerata
