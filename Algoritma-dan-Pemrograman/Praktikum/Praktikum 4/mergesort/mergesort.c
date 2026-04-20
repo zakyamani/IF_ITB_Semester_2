@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "tester.h"
 
 int main(){
+    init();
     FILE *data1 = fopen("data1.txt", "r");
     int size1;
     fscanf(data1, "%d ", &size1);
@@ -26,7 +28,13 @@ int main(){
     int sorted[size];
     int current1 = 0, current2 = 0;
     for(int i=0; i<size; i++){
-        if(angka1[current1] <= angka2[current2]){
+        if((angka1[current1] <= angka2[current2]) && (current1 < size1) && (current2 < size2)){
+            sorted[i] = angka1[current1];
+            current1++;
+        }else if((angka1[current1] > angka2[current2]) && (current1 < size1) && (current2 < size2)){
+            sorted[i] = angka2[current2];
+            current2++;
+        }else if(current1 < size1){
             sorted[i] = angka1[current1];
             current1++;
         }else{

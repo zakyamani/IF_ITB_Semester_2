@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "tester.h"
 
 int main(){
+    init();
     FILE *kunci = fopen("kunci.txt", "r");
     char origin[26], encrypt[26];
     for(int i=0; i<26; i++){

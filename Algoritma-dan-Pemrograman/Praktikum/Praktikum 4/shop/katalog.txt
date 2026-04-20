@@ -1,0 +1,4 @@
+A01 gnome-plushie 15000
+B02 mystery-hat 25000
+A03 journal-replica 50000
+.
