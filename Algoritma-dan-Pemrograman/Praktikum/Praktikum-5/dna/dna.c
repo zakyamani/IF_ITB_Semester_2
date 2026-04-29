@@ -1,5 +1,6 @@
 #include "dna.h"
 #include "boolean.h"
+#include <stdio.h>
 #include <string.h>
 /* KONSTRUKTOR */
 
@@ -35,8 +36,8 @@ boolean IsStopCodon(DNA D, int idx){
 /* OPERASI UTAMA */
 
 DNA EkstrakProtein(DNA D){
-    int start;
-    int end;
+    int start = 0;
+    int end = 0;
     for(int i=0; i<D.panjang; i++){
         if(IsStartCodon(D,i)){
             start = i;

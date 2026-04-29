@@ -1,4 +1,5 @@
 #include "image.h"
+#include <stdio.h>
 #include <stdbool.h>
 
 /* ***************************************************************** */
@@ -180,6 +181,9 @@ IMAGE BlendImage(IMAGE I1, IMAGE I2){
             result.data[i][j].B = (I1.data[i][j].B + I2.data[i][j].B)/2; 
         }
     }
+    result.cols = I1.cols;
+    result.rows = I1.rows;
+    return result;
 }
 /* Mengembalikan IMAGE baru hasil percampuran (overlay) I1 dan I2.
    Prekondisi: Ukuran I1 dan I2 dijamin sama.
