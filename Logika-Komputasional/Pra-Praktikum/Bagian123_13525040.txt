@@ -1,0 +1,200 @@
+| ?- menikah(adinda,X).
+
+X = todoroki ? ;
+
+X = levi
+
+no
+
+
+| ?- anak(A, loid), anak(B, A), anak(Cicit, B).
+
+A = adinda
+B = william
+Cicit = umaru ? a
+
+A = adinda
+B = razi
+Cicit = chopper
+
+no
+
+| ?- anak(chopper,A),anak(A,B),saudara(B,Pamandariorangtua).
+
+A = razi
+B = adinda
+Pamandariorangtua = karma
+
+no
+
+?- mertua(X,Output), usia(X,UmurX), UmurX > 110.
+
+Output = todoroki
+UmurX = 135
+X = loid ? a
+
+Output = levi
+UmurX = 135
+X = loid
+
+Output = todoroki
+UmurX = 132
+X = yor
+
+Output = levi
+UmurX = 132
+X = yor
+
+no
+
+
+| ?- pria(Output), sepupu(Output,X), wanita(X).
+
+Output = fathur
+X = anya ? a
+
+Output = fathur
+X = anya
+
+Output = chopper
+X = umaru
+
+no
+
+| ?- keturunan(Output, faqih), saudara(Output, X), \+ (saudara(Output, Y), X \= Y).
+
+Output = owen
+X = ariana ? a
+
+Output = owen
+X = ariana
+
+Output = ariana
+X = owen
+
+Output = ariana
+X = owen
+
+Output = nezuko
+X = fathur
+
+Output = nezuko
+X = fathur
+
+Output = fathur
+X = nezuko
+
+Output = fathur
+X = nezuko
+
+no
+
+
+| ?- pria(Output),anak(X,Output),wanita(X),saudara(Output,Y),pria(Y), \+saudaratiri(Output,Y).
+
+no
+
+
+| ?- menikah(Output, X), usia(Output, Umuroutput), usia(X, UmurX), UmurX > 10 + Umuroutput.
+
+Output = karina
+UmurX = 109
+Umuroutput = 97
+X = faqih ? a
+
+Output = tsunade
+UmurX = 64
+Umuroutput = 46
+X = owen
+
+no
+
+
+| ?- anaksulung(Output), anak(Output, X), anak(Y,X), Y\=Output.
+
+Output = karma
+X = loid
+Y = adinda ? a
+
+Output = karma
+X = yor
+Y = adinda
+
+Output = karma
+X = loid
+Y = adinda
+
+Output = karma
+X = yor
+Y = adinda
+
+Output = owen
+X = faqih
+Y = ariana
+
+Output = owen
+X = karina
+Y = ariana
+
+Output = owen
+X = faqih
+Y = ariana
+
+Output = owen
+X = karina
+Y = ariana
+
+Output = nezuko
+X = tsunade
+Y = fathur
+
+Output = nezuko
+X = owen
+Y = fathur
+
+Output = nezuko
+X = tsunade
+Y = fathur
+
+Output = nezuko
+X = owen
+Y = fathur
+
+(78 ms) no
+
+
+| ?- usia(Output,Umuroutput), Umuroutput > 50, menikah(Output, X), saudara(X,Y).
+
+Output = todoroki
+Umuroutput = 72
+X = adinda
+Y = karma ? a
+
+Output = todoroki
+Umuroutput = 72
+X = adinda
+Y = karma
+
+Output = levi
+Umuroutput = 69
+X = adinda
+Y = karma
+
+Output = levi
+Umuroutput = 69
+X = adinda
+Y = karma
+
+Output = zoro
+Umuroutput = 57
+X = ariana
+Y = owen
+
+Output = zoro
+Umuroutput = 57
+X = ariana
+Y = owen
+
+(46 ms) no
+
+
