@@ -1,0 +1,20 @@
+procedure add (input/output S : integer[0..7], num : integer)
+{ I.S S sebuah set yang terurut berdasarkan nilainya }
+{ F.S Ditambahkan num ke dalam S sehingga S tetap terurut }
+
+KAMUS LOKAL
+
+ALGORITMA
+    idx <- -1
+    sama <- -1
+    i <- 0
+    while((i < 8) && (idx = -1) && (sama = -1)) do
+        if(num < S[i]) then
+            ditemukan <- i
+        if(num = S[i]) then
+            sama <- i
+    { i >= 8 atau idx != -1 atau sama != -1 }
+
+    if(ditemukan != -1) then
+        i <- 8
+        while(i )
